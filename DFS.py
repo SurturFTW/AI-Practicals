@@ -5,15 +5,19 @@ graph = {'A': set(['B', 'C']),
          'E': set(['B', 'F']),
          'F': set(['C', 'E'])}
 
+
 def dfs(graph, start):
-    visited, stack = set(), [start]
+    visited, stack = [], [start]
     while stack:
         vertex = stack.pop()
         if vertex not in visited:
             visited.add(vertex)
-            stack.extend(graph[vertex] - visited)
+            stack.extend(graph[vertex] - set(visited))
     return visited
-print(dfs(graph, 'A')) # {'E', 'D', 'F', 'A', 'C', 'B'}
+
+
+print(dfs(graph, 'A'))  # {'E', 'D', 'F', 'A', 'C', 'B'}
+
 
 def dfs_paths(graph, start, goal):
     stack = [(start, [start])]
@@ -24,5 +28,8 @@ def dfs_paths(graph, start, goal):
                 yield path + [next]
             else:
                 stack.append((next, path + [next]))
-l1 = list(dfs_paths(graph, 'A', 'E')) # [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+
+
+# [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+l1 = list(dfs_paths(graph, 'A', 'E'))
 print(l1)

@@ -2,10 +2,12 @@ female(pam).
 female(liz).
 female(pat).
 female(ann).
+
 male(jim).
 male(bob).
 male(tom).
 male(peter).
+
 parent(pam,bob).
 parent(tom,bob).
 parent(tom,liz).
@@ -14,6 +16,7 @@ parent(bob,pat).
 parent(pat,jim).
 parent(bob,peter).
 parent(peter,jim).
+
 mother(X,Y):- parent(X,Y),female(X).
 father(X,Y):- parent(X,Y),male(X).
 haschild(X):- parent(X,_).
