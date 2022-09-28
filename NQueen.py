@@ -24,13 +24,12 @@ def place(k, i):
 
 def NQueens(k):  # K Number of moves
     for i in range(1, n + 1):  # NUMBER OF POSSIBLE SOLUTION
-        clear_future_blocks(k)
+        clear_future_blocks(k)  # clear row
         if place(k, i):  # k queen in  i col
             x[k] = i  # can place queen in that position
             if (k == n):
                 for j in x:
                     print(x[j], end=' ')
-                # print()
                 print('\n-------')
             else:
                 NQueens(k + 1)

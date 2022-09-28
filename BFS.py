@@ -13,7 +13,7 @@ def bfs(graph, start):
         # print("Explored List: " + str(visited) + "Frontier List: " + str(queue)) print("Poped Vertex: " + vertex)
         vertex = queue.pop()
         if vertex not in visited:
-            visited.append(vertex)
+            visited.extend(vertex)
             queue.extend(graph[vertex] - set(visited))
             print("----------")
     return visited
