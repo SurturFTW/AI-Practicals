@@ -21,12 +21,6 @@ class State():
         else:
             return False
 
-def __eq__(self, other):
-    return self.cannibalLeft == other.cannibalLeft and self.missionaryLeft == other.missionaryLeft and self.boat == other.boat and self.cannibalRight == other.cannibalRight and self.missionaryRight == other.missionaryRight
-
-def __hash__(self):
-    return hash((self.cannibalLeft, self.missionaryLeft, self.boat, self.cannibalRight, self.missionaryRight))
-
 def successors(cur_state):
     children = [];
     if cur_state.boat == 'left':
