@@ -1,0 +1,23 @@
+# import random
+# initialise empty list
+# list of suits 
+# list of royals
+# initialise empty array to print deck
+
+# for loop to select from 2 to 10 cards so range(2,11)
+    
+# for loop to select from 4 royal cards so range(4)
+    
+# for loop to select from 4 suits so range(4)
+    # for loop to select from range(13) because 13 cards of each suit
+        # cards = combining cardfaces with suits
+        # append deck with cards
+        
+# used to shuffle the deck
+
+# for loop to select 52 cards so range(52)
+    # print deck
+
+
+
+    

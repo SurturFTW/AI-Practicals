@@ -1,0 +1,93 @@
+class state():
+	def __init__(self,cL,mL,boat,cR,mR):
+		self.cL = cL
+		self.mL = mL
+		.
+		.
+		self.parent = None
+	
+	def is_goal(self):
+		if cL==0 and mL==0:
+			return True
+		else: 
+			return False
+	
+	def is_valid(self)
+		if (mL>=0 and mR>=0 and cL>=0 and cR>=0 and (mL==0 or mL>=cL) and (mR==0 or mR>=cR)):
+			return True
+		else:
+			return False
+	
+def successor(cur_state):
+    children=[]
+    if cur_state.boat == 'left':
+        
+        ## Two miss cross left to right ##
+        new_state = state(cur_state.cL, cur_state.mL-2, 'boat', cur_state.cR, cur_state.mR+2)
+        if new_state.is_valid():
+            new_state.parent = cur_state
+            children.append(new_state)
+
+        same line of codes as per the condition
+        is_valid loop will be common for each condition
+        
+        ## Two cannibals cross left to right ## 
+
+        ## One miss and one cannibal cross left to right ##
+
+        ## One miss cross left to right ##
+
+        ## One cannibal cross left to right ##
+
+    else:
+        ## Two miss cross right to left ##
+        
+        ## Two cannibals cross right to left ##
+
+        ## One miss and one cannibal cross right to left ##
+
+        ## One miss cross right to left ##
+
+        One cannibal cross right to left
+    
+    return children
+
+def bfs():
+    initial_state = state(3,3,'left',0,0)
+    if initial_state.is_goal:
+        return initial_state
+        
+    frontier = list()
+    explored = set()
+
+    frontier.append(initial_state)
+    while frontier:
+        state=frontier.pop(0)
+        if state.is_goal():
+            return state
+        explored.add(state)
+        children = successor(state)
+        for child in children:
+            if (child not in explored) or (child not in frontier):
+                frontier.append(child)
+    return None
+
+def print_solution(sol):
+    path = []
+    path.append(sol)
+    parent = sol.parent
+    while parent:
+        path.append(parent)
+        parent = parent.parent
+
+    for t in range(len(path)):
+        state = path[len(path) - t - 1]
+        print(str(state.cL)+","+str(state.mL)+"boat"+str(state.cR)+","+str(state.mR))
+
+sol = bfs()
+print("Miss and cnn sol:")
+print(format)
+print_solution(sol)
+
+
+    
